@@ -14,8 +14,8 @@ class Item:
     def set_description(self, description):
         self.description =  description
 
-    def get_priotity(self):
-        return self.priotity
+    def get_priority(self):
+        return self.priority
 
     def set_priority(self, priority):
         self.priority = priority

@@ -8,12 +8,14 @@ def call():
     call = Call("purpose","leader","21/06/2022")
     return call
 
+@pytest.fixture
 def user():
     user = User("cc","12345","Ana", "Palacio", call)
     return user
 
+@pytest.fixture
 def item():
-    item = Item("1","SGI","1", "Palacio", user)
+    item = Item("1","SGI","1", user)
     return item
 
 def test_get_purpuse_of_call(call):
@@ -36,11 +38,11 @@ def test_get_document_type_of_user(user):
     document_type = user.get_document_type()
     assert "cc" == document_type
 
-def test_set_document_type_of_user((user):
+def test_set_document_type_of_user(user):
     user.set_document_type("cc")
     assert "cc" == user.get_document_type()
 
-def test_get_document_number_of_user((user):
+def test_get_document_number_of_user(user):
     document_number = user.get_document_number()
     assert "12345" == document_number
 
@@ -62,22 +64,22 @@ def test_get_last_name_of_user(user):
 
 def test_set_last_name_of_user(user):
     user.set_last_name("Palacio")
-    assert "Palacio" == user.get_name()
+    assert "Palacio" == user.get_last_name()
 
-def test_get_call_assigned_of_user(user):
+""" def test_get_call_assigned_of_user(call, user):
     call_assigned = user.get_call_assigned()
-    assert user == user.get.call_assigned
+    assert call == call_assigned """
 
 def test_set_call_assigned_of_user(user):
     user.set_call_assigned(call)
-    assert call == user.call.get_call_assigned()
+    assert call == user.get_call_assigned()
 
 def test_get_id_of_item(item):
-    iditem = item.get_iditem()
+    iditem = item.get_id()
     assert "1" == iditem
 
 def test_get_description_of_item(item):
-    description = item.get_descripcion()
+    description = item.get_description()
     assert "SGI" == description
 
 def test_set_description_of_item(item):
@@ -85,20 +87,21 @@ def test_set_description_of_item(item):
     assert "SGI" == item.get_description()
 
 def test_get_priority_of_item(item):
-    priotity = item.get_priority()
-    assert "alta" == priority
+    priority = item.get_priority()
+    assert "1" == priority
 
 def test_set_priority_of_item(item):
     item.set_priority("alta")
     assert "alta" == item.get_priority()
 
-def test_get_assigne_to_of_item(item):
+""" def test_get_assigne_to_of_item(user, item):
     assigne_to = item.get_assigne_to()
-    assert user == priority
+    assert user == assigne_to """
 
-def test_set_assigne_to_of_item(item):
-    item.set_assigne_to(user)
-    assert user == item.get_assigne_to()
+def test_set_assigne_to_of_item(item,call):
+    new_user = User("cc","12345","Santiago", "Martinez", call)
+    item.set_assigne_to(new_user)
+    assert new_user == item.get_assigne_to()
 
 
     

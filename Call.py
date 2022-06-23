@@ -7,7 +7,7 @@ class Call:
     def get_purpose(self):
         return self.purpose
 
-    def set_purpose(self, porpose):
+    def set_purpose(self, purpose):
         self.purpose = purpose
 
     def get_leader(self):

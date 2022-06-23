@@ -7,16 +7,16 @@ class User:
         self.cell_assigned = cell_assigned
 
 
-    def get_documento_type(self):
+    def get_document_type(self):
         return self.document_type
 
     def set_document_type(self, document_type):
         self.document_type = document_type
 
-    def get_documento_number(self):
-        return self.documento_number
+    def get_document_number(self):
+        return self.document_number
 
-    def set_documento_number(self, document_number):
+    def set_document_number(self, document_number):
         self.document_number = document_number
     
     def get_name(self):
